@@ -13,7 +13,7 @@ namespace AvaloniaTestMVVM.Views.Converters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is string && targetType == typeof(IBitmap))
+            if (value is string && targetType == typeof(Bitmap))
             {
                 var uri = new Uri((string)value, UriKind.RelativeOrAbsolute);
                 var scheme = uri.IsAbsoluteUri ? uri.Scheme : "file";
@@ -24,8 +24,7 @@ namespace AvaloniaTestMVVM.Views.Converters
                         return new Bitmap((string)value);
 
                     default:
-                        var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-                        return new Bitmap(assets.Open(uri));
+                        return new Bitmap(AssetLoader.Open(uri));
                 }
             }
 

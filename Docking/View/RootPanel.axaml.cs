@@ -6,7 +6,7 @@ using AvaloniaTestMVVM.Views;
 
 namespace AvaloniaTestMVVM.Docking.View
 {
-    public class RootPanel : UserControl
+    public partial class RootPanel : UserControl
     {
         public event Action Cleared;
         

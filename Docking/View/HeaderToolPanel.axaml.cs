@@ -5,7 +5,7 @@ using Avalonia.Markup.Xaml;
 
 namespace AvaloniaTestMVVM.Docking.View
 {
-    public class HeaderToolPanel : UserControl
+    public partial class HeaderToolPanel : UserControl
     {
         private string _header;
 

@@ -10,7 +10,7 @@ using AvaloniaTestMVVM.Docking.Model;
 
 namespace AvaloniaTestMVVM.Docking.View
 {
-    public class LocationControl : UserControl
+    public partial class LocationControl : UserControl
     {
         public event Action<ELocation> LocationSelected; 
 

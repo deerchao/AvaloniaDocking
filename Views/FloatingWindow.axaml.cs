@@ -6,7 +6,7 @@ using AvaloniaTestMVVM.Docking.View;
 
 namespace AvaloniaTestMVVM.Views
 {
-    public class FloatingWindow : Window
+    public partial class FloatingWindow : Window
     {
         public FloatingWindow()
         {

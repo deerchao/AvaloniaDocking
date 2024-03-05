@@ -15,7 +15,7 @@ using ReactiveUI;
 
 namespace AvaloniaTestMVVM.Docking.View
 {
-    public class LayoutPanel : UserControl, ILayoutPanel
+    public partial class LayoutPanel : UserControl, ILayoutPanel
     {
         #region Events
         public event Action<LayoutPanel> CloseRequest;
@@ -153,7 +153,7 @@ namespace AvaloniaTestMVVM.Docking.View
             var items = _tabControl.Items.Cast<object>().ToList();
             items.Add(tabItem);
 
-            _tabControl.Items = items;
+            _tabControl.ItemsSource = items;
             _tabControl.SelectedItem = tabItem;
         }
 
@@ -198,7 +198,7 @@ namespace AvaloniaTestMVVM.Docking.View
                     { Header = "Удалить", Command = ReactiveCommand.Create(RemoveActiveContent) }
             };
 
-            menu.Items = items;
+            menu.ItemsSource = items;
             //_tabControl.ContextMenu = menu;
             _mainGrid.ContextMenu = menu;
 
@@ -335,7 +335,7 @@ namespace AvaloniaTestMVVM.Docking.View
                 var tabItem = (TabItem)_tabControl.SelectedItem;
                 var items = _tabControl.Items.Cast<object>().ToList();
                 items.Remove(tabItem);
-                _tabControl.Items = items;
+                _tabControl.ItemsSource = items;
 
                 if (items.Count == 0)
                 {
@@ -358,8 +358,8 @@ namespace AvaloniaTestMVVM.Docking.View
         {
             this.AddHandler(PointerReleasedEvent, MouseUpHandler, handledEventsToo: true);
             this.AddHandler(PointerPressedEvent, MouseDownHandler, handledEventsToo: true);
-            this.AddHandler(PointerLeaveEvent, MouseLeaveHandler, handledEventsToo: true);
-            this.AddHandler(PointerEnterEvent, MouseEnterHandler, handledEventsToo: true);
+            this.AddHandler(PointerExitedEvent, MouseLeaveHandler, handledEventsToo: true);
+            this.AddHandler(PointerEnteredEvent, MouseEnterHandler, handledEventsToo: true);
             //this.AddHandler(PointerMovedEvent, MouseMovedHandler, handledEventsToo: true);
         }
         
@@ -367,8 +367,8 @@ namespace AvaloniaTestMVVM.Docking.View
         {
             this.RemoveHandler(PointerReleasedEvent, MouseUpHandler);
             this.RemoveHandler(PointerPressedEvent, MouseDownHandler);
-            this.RemoveHandler(PointerLeaveEvent, MouseLeaveHandler);
-            this.RemoveHandler(PointerEnterEvent, MouseEnterHandler);
+            this.RemoveHandler(PointerExitedEvent, MouseLeaveHandler);
+            this.RemoveHandler(PointerEnteredEvent, MouseEnterHandler);
             //this.RemoveHandler(PointerMovedEvent, MouseMovedHandler);
         }
 
