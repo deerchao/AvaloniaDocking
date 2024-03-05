@@ -163,39 +163,39 @@ namespace AvaloniaTestMVVM.Docking.View
             var items = new[]
             {
                 new MenuItem()
-                    { Header = "Отсоединить", Command = ReactiveCommand.Create(Flow) },
+                    { Header = "Float", Command = ReactiveCommand.Create(Flow) },
                 new MenuItem()
                 {
-                    Header = "Добавить внутрь",
+                    Header = "Add inside",
                     Command = ReactiveCommand.Create(
                         () => { this.AddContent(CreateRandomContent(), ELocation.Inside); })
                 },
                 new MenuItem()
                 {
-                    Header = "Добавить слева", 
+                    Header = "Add to left", 
                     Command = ReactiveCommand.Create(
                         () => { this.AddContent(CreateRandomContent(), ELocation.Left); })
                 },
                 new MenuItem()
                 {
-                    Header = "Добавить справа", 
+                    Header = "Add to right", 
                     Command = ReactiveCommand.Create(
                         () => { this.AddContent(CreateRandomContent(), ELocation.Right); })
                 },
                 new MenuItem()
                 {
-                    Header = "Добавить сверху", 
+                    Header = "Add above", 
                     Command = ReactiveCommand.Create(
                         () => { this.AddContent(CreateRandomContent(), ELocation.Top); })
                 },
                 new MenuItem()
                 {
-                    Header = "Добавить снизу", 
+                    Header = "Add below", 
                     Command = ReactiveCommand.Create(
                         () => { this.AddContent(CreateRandomContent(), ELocation.Bottom); })
                 },
                 new MenuItem()
-                    { Header = "Удалить", Command = ReactiveCommand.Create(RemoveActiveContent) }
+                    { Header = "Remove", Command = ReactiveCommand.Create(RemoveActiveContent) }
             };
 
             menu.ItemsSource = items;
